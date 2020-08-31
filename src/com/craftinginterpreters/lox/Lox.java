@@ -27,7 +27,8 @@ public class Lox {
     private static void runFile(String path) throws IOException {
         byte[] bytes = Files.readAllBytes(Paths.get(path));
         run(new String(bytes, Charset.defaultCharset()));
-        if (hadError) System.exit(65);
+        if (hadError)
+            System.exit(65);
 
     }
 
@@ -61,8 +62,7 @@ public class Lox {
     }
 
     private static void report(int line, String where, String message) {
-        System.err.println(
-                "[line " + line + "] Error" + where + ": " + message);
+        System.err.println("[line " + line + "] Error" + where + ": " + message);
         hadError = true;
     }
 
